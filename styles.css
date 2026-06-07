@@ -1,0 +1,551 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #eef1f7;
+  color: #1a2742;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+}
+
+.topbar,
+.footer {
+  background: #0b3778;
+  color: #ffffff;
+}
+
+.topbar {
+  padding: 14px 0;
+}
+
+.nav-wrap,
+.footer-wrap,
+.section,
+.page-wrap {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+.nav-wrap,
+.footer-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand img,
+.footer-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 18px;
+}
+
+.nav a {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.nav a:hover,
+.nav a.active {
+  text-decoration: underline;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-home {
+  min-height: 320px;
+  background: url("images/home-hero.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.hero-about {
+  min-height: 260px;
+  background: url("images/about-banner.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.hero-polls {
+  min-height: 260px;
+  background: url("images/polls-hero.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8, 23, 52, 0.88), rgba(8, 23, 52, 0.18));
+}
+
+.hero-content {
+  position: relative;
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  color: #ffffff;
+  padding: 36px 0;
+}
+
+.hero-content h1 {
+  margin: 0 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.05;
+}
+
+.hero-content p {
+  max-width: 640px;
+  margin: 0 0 18px;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.hero-about .hero-content p,
+.hero-polls .hero-content p {
+  max-width: 520px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 11px 22px;
+  border-radius: 7px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.btn-red {
+  background: #d81f3c;
+}
+
+.btn-blue {
+  background: #0b3778;
+}
+
+.section {
+  margin: 34px auto;
+}
+
+.section h2 {
+  margin: 0 0 10px;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #0b3778;
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+}
+
+.section-intro {
+  max-width: 760px;
+  margin: 0 auto 18px;
+  text-align: center;
+  line-height: 1.45;
+  color: #2d3d5e;
+}
+
+.feature-grid,
+.election-grid,
+.region-grid,
+.highlight-grid,
+.form-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.feature-grid {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 18px;
+}
+
+.election-grid {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 18px;
+}
+
+.card,
+.feature-card,
+.election-card,
+.callout,
+.info-card,
+.map-card,
+.poll-card,
+.form-card,
+.highlight-card,
+.region-card {
+  background: #ffffff;
+  border-radius: 11px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card {
+  text-align: center;
+  padding: 18px 16px;
+}
+
+.feature-card img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  margin: 0 auto 12px;
+}
+
+.feature-card h3,
+.election-card h3,
+.info-card h3,
+.map-card h3,
+.poll-card h3,
+.form-card h3,
+.highlight-card h3,
+.region-card h3 {
+  margin: 0 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #0b3778;
+}
+
+.feature-card p,
+.election-card p,
+.info-card p,
+.map-card p,
+.poll-card p,
+.form-card p,
+.highlight-card p,
+.region-card p {
+  margin: 0;
+  line-height: 1.45;
+  color: #223453;
+  font-size: 14px;
+}
+
+.election-card {
+  text-align: center;
+  padding: 14px;
+}
+
+.election-card img {
+  border-radius: 9px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.callout {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px;
+}
+
+.callout h2 {
+  text-align: left;
+  margin: 0 0 10px;
+}
+
+.callout p {
+  max-width: 680px;
+}
+
+.callout .btn {
+  min-width: 140px;
+  text-align: center;
+}
+
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 18px;
+}
+
+.info-card img {
+  width: 300px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.info-card h3 {
+  text-align: left;
+  margin-bottom: 10px;
+  font-size: 1.35rem;
+}
+
+.info-card p,
+.info-card li {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.about-copy {
+  width: min(900px, 92%);
+  margin: 0 auto 18px;
+  text-align: center;
+}
+
+.about-copy p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.map-card {
+  padding: 16px;
+}
+
+.map-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 8px;
+}
+
+.region-grid {
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 16px;
+}
+
+.region-card {
+  padding: 12px;
+}
+
+.region-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.highlight-grid {
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 16px;
+}
+
+.highlight-card {
+  text-align: center;
+  padding: 16px 12px;
+}
+
+.highlight-card img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  margin: 0 auto 10px;
+}
+
+.timeline-wrap {
+  position: relative;
+  margin-top: 10px;
+  padding-left: 58px;
+}
+
+.timeline-wrap::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 12px;
+  bottom: 12px;
+  width: 3px;
+  background: #0b3778;
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 120px 1fr 120px;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  margin: 16px 0;
+  background: #ffffff;
+  border-radius: 11px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.timeline-item::before {
+  content: "★";
+  position: absolute;
+  left: -47px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #0b3778;
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  border: 4px solid #eef1f7;
+}
+
+.timeline-year {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0b3778;
+}
+
+.timeline-title {
+  margin: 0 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #0b3778;
+}
+
+.timeline-item img {
+  width: 100%;
+  height: 92px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.button-row {
+  text-align: center;
+  margin-top: 22px;
+}
+
+.poll-card,
+.form-card {
+  padding: 18px;
+}
+
+.form-grid {
+  grid-template-columns: 1.1fr 1fr;
+  margin-top: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: #0b3778;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  border: 1px solid #e1e4ee;
+  border-radius: 2px;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  font: inherit;
+}
+
+textarea {
+  min-height: 84px;
+  resize: vertical;
+}
+
+.poll-option {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 10px 0;
+  font-size: 14px;
+  color: #1d2d4f;
+}
+
+.submit-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.footer {
+  margin-top: 34px;
+  padding-top: 18px;
+}
+
+.footer-wrap {
+  align-items: flex-start;
+  padding-bottom: 12px;
+}
+
+.footer h3 {
+  margin: 0 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+
+.footer a,
+.footer p {
+  display: block;
+  margin: 0 0 4px;
+  color: #e0e8fb;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.copyright {
+  margin: 0;
+  padding: 14px 0 16px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 13px;
+  color: #d7e1f5;
+}
+
+@media (max-width: 900px) {
+  .feature-grid,
+  .election-grid,
+  .region-grid,
+  .highlight-grid,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-item img {
+    height: auto;
+  }
+
+  .info-card,
+  .callout,
+  .nav-wrap,
+  .footer-wrap {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .info-card h3,
+  .callout h2 {
+    text-align: center;
+  }
+
+  .nav {
+    justify-content: center;
+  }
+}

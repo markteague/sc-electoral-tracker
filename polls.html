@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Author: Mark Teague | Assignment: SC Electoral Tracker | Date: June 2026 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SC Electoral Tracker | Polls & Feedback</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+
+<header class="topbar">
+    <div class="nav-wrap">
+        <a class="brand" href="index.html">
+            <img src="images/logo.png" alt="SC Electoral Tracker Logo">
+        </a>
+
+        <nav class="nav">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="county-map.html">County Map</a>
+            <a href="timeline.html">Timeline</a>
+            <a href="polls.html" class="active">Polls/Feedback</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero hero-polls">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Polls &amp; Feedback</h1>
+            <p>We value your voice! Share your thoughts and help us improve.</p>
+        </div>
+    </section>
+
+    <div class="section form-grid">
+        <section class="poll-card">
+            <h2 style="text-align:left;">Quick Poll</h2>
+            <p class="section-intro" style="text-align:left; margin: 0 0 12px;">
+                Which Historical Event do you find the most Interesting?
+            </p>
+
+            <label class="poll-option">
+                <input type="checkbox" name="poll">
+                1788 - Ratification of the U.S. Constitution
+            </label>
+
+            <label class="poll-option">
+                <input type="checkbox" name="poll">
+                1860-1865 - Leaving of the Union
+            </label>
+
+            <label class="poll-option">
+                <input type="checkbox" name="poll">
+                2020 - Record Turnout
+            </label>
+
+            <label class="poll-option">
+                <input type="checkbox" name="poll">
+                Other
+            </label>
+        </section>
+
+        <section class="form-card">
+            <h2 style="text-align:left;">Your Feedback</h2>
+            <p class="section-intro" style="text-align:left; margin: 0 0 14px;">
+                Let us know what you think about our website.
+            </p>
+
+            <label for="name">Name</label>
+            <input id="name" type="text" placeholder="Your name">
+
+            <label for="email">Email</label>
+            <input id="email" type="email" placeholder="Your email">
+
+            <label for="comments">Comments</label>
+            <textarea id="comments" placeholder="Share your thoughts..."></textarea>
+        </section>
+    </div>
+
+    <section class="section">
+        <div class="poll-card">
+            <h2 style="text-align:left;">Newsletter Signup</h2>
+            <p class="section-intro" style="text-align:left; margin: 0 0 12px;">
+                Stay updated on new content and historical insights!
+            </p>
+
+            <div class="submit-row">
+                <input type="email" placeholder="Enter your email" style="flex: 1 1 280px;">
+                <a class="btn btn-blue" href="#">Subscribe</a>
+            </div>
+
+            <div class="submit-row" style="justify-content: center;">
+                <a class="btn btn-red" href="#">Submit Feedback</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="footer-wrap">
+        <div>
+            <img class="footer-logo" src="images/logo.png" alt="SC Electoral Tracker Logo">
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="county-map.html">County Map</a>
+            <a href="timeline.html">Timeline</a>
+            <a href="polls.html">Polls/Feedback</a>
+        </div>
+
+        <div>
+            <h3>Resources</h3>
+            <a href="#">Contact Us</a>
+        </div>
+
+        <div>
+            <h3>Connect</h3>
+            <p>Instagram</p>
+            <p>LinkedIn</p>
+            <p>YouTube</p>
+            <p>Facebook</p>
+        </div>
+    </div>
+
+    <p class="copyright">@Copyright 2026 SC Electoral Tracker</p>
+</footer>
+
+</body>
+</html>
