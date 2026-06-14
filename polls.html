@@ -26,6 +26,7 @@
 </header>
 
 <main>
+
     <section class="hero hero-polls">
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -35,9 +36,11 @@
     </section>
 
     <div class="section form-grid">
+
         <section class="poll-card">
             <h2 style="text-align:left;">Quick Poll</h2>
-            <p class="section-intro" style="text-align:left; margin: 0 0 12px;">
+
+            <p class="section-intro" style="text-align:left; margin:0 0 12px;">
                 Which Historical Event do you find the most Interesting?
             </p>
 
@@ -60,52 +63,79 @@
                 <input type="checkbox" name="poll">
                 Other
             </label>
+
         </section>
 
         <section class="form-card">
+
             <h2 style="text-align:left;">Your Feedback</h2>
-            <p class="section-intro" style="text-align:left; margin: 0 0 14px;">
+
+            <p class="section-intro" style="text-align:left; margin:0 0 14px;">
                 Let us know what you think about our website.
             </p>
 
-            <label for="name">Name</label>
-            <input id="name" type="text" placeholder="Your name">
+            <form id="feedbackForm">
 
-            <label for="email">Email</label>
-            <input id="email" type="email" placeholder="Your email">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Your name">
 
-            <label for="comments">Comments</label>
-            <textarea id="comments" placeholder="Share your thoughts..."></textarea>
+                <label for="email">Email</label>
+                <input id="email" type="email" placeholder="Your email">
+
+                <label for="comments">Comments</label>
+                <textarea id="comments" placeholder="Share your thoughts..."></textarea>
+
+                <button type="submit" class="btn btn-red">
+                    Submit Feedback
+                </button>
+
+                <p id="message"></p>
+
+            </form>
+
         </section>
+
     </div>
 
     <section class="section">
+
         <div class="poll-card">
+
             <h2 style="text-align:left;">Newsletter Signup</h2>
-            <p class="section-intro" style="text-align:left; margin: 0 0 12px;">
+
+            <p class="section-intro" style="text-align:left; margin:0 0 12px;">
                 Stay updated on new content and historical insights!
             </p>
 
             <div class="submit-row">
-                <input type="email" placeholder="Enter your email" style="flex: 1 1 280px;">
-                <a class="btn btn-blue" href="#">Subscribe</a>
+                <input type="email"
+                       placeholder="Enter your email"
+                       style="flex:1 1 280px;">
+
+                <a class="btn btn-blue" href="#">
+                    Subscribe
+                </a>
             </div>
 
-            <div class="submit-row" style="justify-content: center;">
-                <a class="btn btn-red" href="#">Submit Feedback</a>
-            </div>
         </div>
+
     </section>
+
 </main>
 
 <footer class="footer">
+
     <div class="footer-wrap">
+
         <div>
-            <img class="footer-logo" src="images/logo.png" alt="SC Electoral Tracker Logo">
+            <img class="footer-logo"
+                 src="images/logo.png"
+                 alt="SC Electoral Tracker Logo">
         </div>
 
         <div>
             <h3>Quick Links</h3>
+
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="county-map.html">County Map</a>
@@ -120,15 +150,57 @@
 
         <div>
             <h3>Connect</h3>
+
             <p>Instagram</p>
             <p>LinkedIn</p>
             <p>YouTube</p>
             <p>Facebook</p>
         </div>
+
     </div>
 
-    <p class="copyright">@Copyright 2026 SC Electoral Tracker</p>
+    <p class="copyright">
+        @Copyright 2026 SC Electoral Tracker
+    </p>
+
 </footer>
+
+<script>
+
+document.getElementById("feedbackForm").addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let comments = document.getElementById("comments").value.trim();
+
+    let message = document.getElementById("message");
+
+    if(name === "" || email === "" || comments === ""){
+
+        message.style.color = "red";
+        message.textContent = "Please fill out all fields.";
+
+        return;
+    }
+
+    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!emailPattern.test(email)){
+
+        message.style.color = "red";
+        message.textContent = "Please enter a valid email address.";
+
+        return;
+    }
+
+    message.style.color = "green";
+    message.textContent = "Form submitted successfully!";
+
+});
+
+</script>
 
 </body>
 </html>
