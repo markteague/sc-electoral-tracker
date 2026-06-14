@@ -38,6 +38,7 @@
     <div class="section form-grid">
 
         <section class="poll-card">
+
             <h2 style="text-align:left;">Quick Poll</h2>
 
             <p class="section-intro" style="text-align:left; margin:0 0 12px;">
@@ -97,19 +98,31 @@
 
     </div>
 
-<section class="section">
-    <div class="poll-card">
-        <h2 style="text-align:left;">Newsletter Signup</h2>
-        <p class="section-intro" style="text-align:left; margin:0 0 12px;">
-            Stay updated on new content and historical insights!
-        </p>
+    <section class="section">
 
-        <div class="submit-row">
-            <input type="email" placeholder="Enter your email" style="flex:1 1 280px;">
-            <a class="btn btn-blue" href="#">Subscribe</a>
+        <div class="poll-card">
+
+            <h2 style="text-align:left;">Newsletter Signup</h2>
+
+            <p class="section-intro" style="text-align:left; margin:0 0 12px;">
+                Stay updated on new content and historical insights!
+            </p>
+
+            <div class="submit-row">
+
+                <input type="email"
+                       placeholder="Enter your email"
+                       style="flex:1 1 280px;">
+
+                <button type="button" class="btn btn-blue">
+                    Subscribe
+                </button>
+
+            </div>
+
         </div>
-    </div>
-</section>
+
+    </section>
 
 </main>
 
@@ -157,36 +170,40 @@
 
 <script>
 
-document.getElementById("feedbackForm").addEventListener("submit", function(event){
+document.addEventListener("DOMContentLoaded", function () {
 
-    event.preventDefault();
+    const form = document.getElementById("feedbackForm");
 
-    let name = document.getElementById("name").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let comments = document.getElementById("comments").value.trim();
+    form.addEventListener("submit", function(event) {
 
-    let message = document.getElementById("message");
+        event.preventDefault();
 
-    if(name === "" || email === "" || comments === ""){
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const comments = document.getElementById("comments").value.trim();
 
-        message.style.color = "red";
-        message.textContent = "Please fill out all fields.";
+        const message = document.getElementById("message");
 
-        return;
-    }
+        if (name === "" || email === "" || comments === "") {
 
-    let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            message.style.color = "red";
+            message.textContent = "Please fill out all fields.";
+            return;
+        }
 
-    if(!emailPattern.test(email)){
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        message.style.color = "red";
-        message.textContent = "Please enter a valid email address.";
+        if (!emailPattern.test(email)) {
 
-        return;
-    }
+            message.style.color = "red";
+            message.textContent = "Please enter a valid email address.";
+            return;
+        }
 
-    message.style.color = "green";
-    message.textContent = "Form submitted successfully!";
+        message.style.color = "green";
+        message.textContent = "Form submitted successfully!";
+
+    });
 
 });
 
