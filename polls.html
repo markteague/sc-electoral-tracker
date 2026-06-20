@@ -63,9 +63,17 @@
                 </label>
 
                 <label class="poll-option">
-                    <input type="radio" name="poll" value="Other">
+                    <input type="radio"
+                        name="poll"
+                        value="Other"
+                        id="otherOption">
                     Other
                 </label>
+
+                <input type="text"
+                     id="otherText"
+                    placeholder="Please specify..."
+                    style="display:none; margin-top:10px; width:100%;">
 
                 <button type="submit" class="btn btn-blue" style="margin-top:12px;">
                     Submit Poll
@@ -218,8 +226,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const pollForm = document.getElementById("pollForm");
     const pollMessage = document.getElementById("pollMessage");
+    const otherOption = document.getElementById("otherOption");
+    const otherText = document.getElementById("otherText");
+
+    document.querySelectorAll('input[name="poll"]').forEach(option => {
+        option.addEventListener("change", function() {
+
+            if (otherOption.checked) {
+                otherText.style.display = "block";
+            } else {
+                otherText.style.display = "none";
+                otherText.value = "";
+            }
+
+        });
+    });
 
     pollForm.addEventListener("submit", function(event) {
+
         event.preventDefault();
 
         const selected = document.querySelector('input[name="poll"]:checked');
@@ -230,8 +254,24 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
+        let selectedValue = selected.value;
+
+        if (selectedValue === "Other") {
+
+            const customAnswer = otherText.value.trim();
+
+            if (customAnswer === "") {
+                pollMessage.style.color = "red";
+                pollMessage.textContent = "Please type your answer for Other.";
+                return;
+            }
+
+            selectedValue = customAnswer;
+        }
+
         pollMessage.style.color = "green";
-        pollMessage.textContent = "Thank you for voting for: " + selected.value;
+        pollMessage.textContent = "Thank you for voting for: " + selectedValue;
+
     });
 
     const subscribeForm = document.getElementById("subscribeForm");
@@ -239,6 +279,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const subscribeMessage = document.getElementById("subscribeMessage");
 
     subscribeForm.addEventListener("submit", function(event) {
+
         event.preventDefault();
 
         const email = subscribeEmail.value.trim();
@@ -259,6 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
         subscribeMessage.style.color = "green";
         subscribeMessage.textContent = "Thanks for subscribing!";
         subscribeEmail.value = "";
+
     });
 
 });
