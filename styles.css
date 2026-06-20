@@ -618,8 +618,6 @@ textarea {
     align-items: center;
     text-align: center;
   }
-
-
   .info-card h3,
   .callout h2 {
     text-align: center;
@@ -639,4 +637,25 @@ textarea {
 #subscribeMessage {
     margin-top: 10px;
     font-weight: bold;
+}
+.map-card img,
+.region-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.map-card img:hover {
+    transform: scale(1.02);
+    cursor: pointer;
+}
+
+.region-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+    cursor: pointer;
+}
+
+.region-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
