@@ -45,25 +45,35 @@
                 Which Historical Event do you find the most Interesting?
             </p>
 
-            <label class="poll-option">
-                <input type="checkbox" name="poll">
-                1788 - Ratification of the U.S. Constitution
-            </label>
+            <form id="pollForm">
 
-            <label class="poll-option">
-                <input type="checkbox" name="poll">
-                1860-1865 - Leaving of the Union
-            </label>
+                <label class="poll-option">
+                    <input type="radio" name="poll" value="1788 - Ratification of the U.S. Constitution">
+                    1788 - Ratification of the U.S. Constitution
+                </label>
 
-            <label class="poll-option">
-                <input type="checkbox" name="poll">
-                2020 - Record Turnout
-            </label>
+                <label class="poll-option">
+                    <input type="radio" name="poll" value="1860-1865 - Leaving of the Union">
+                    1860-1865 - Leaving of the Union
+                </label>
 
-            <label class="poll-option">
-                <input type="checkbox" name="poll">
-                Other
-            </label>
+                <label class="poll-option">
+                    <input type="radio" name="poll" value="2020 - Record Turnout">
+                    2020 - Record Turnout
+                </label>
+
+                <label class="poll-option">
+                    <input type="radio" name="poll" value="Other">
+                    Other
+                </label>
+
+                <button type="submit" class="btn btn-blue" style="margin-top:12px;">
+                    Submit Poll
+                </button>
+
+                <p id="pollMessage"></p>
+
+            </form>
 
         </section>
 
@@ -108,17 +118,24 @@
                 Stay updated on new content and historical insights!
             </p>
 
-            <div class="submit-row">
+            <form id="subscribeForm">
 
-                <input type="email"
-                       placeholder="Enter your email"
-                       style="flex:1 1 280px;">
+                <div class="submit-row">
 
-                <button type="button" class="btn btn-blue">
-                    Subscribe
-                </button>
+                    <input type="email"
+                           id="subscribeEmail"
+                           placeholder="Enter your email"
+                           style="flex:1 1 280px;">
 
-            </div>
+                    <button type="submit" class="btn btn-blue">
+                        Subscribe
+                    </button>
+
+                </div>
+
+                <p id="subscribeMessage"></p>
+
+            </form>
 
         </div>
 
@@ -169,23 +186,19 @@
 </footer>
 
 <script>
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    const form = document.getElementById("feedbackForm");
+    const feedbackForm = document.getElementById("feedbackForm");
+    const message = document.getElementById("message");
 
-    form.addEventListener("submit", function(event) {
-
+    feedbackForm.addEventListener("submit", function(event) {
         event.preventDefault();
 
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
         const comments = document.getElementById("comments").value.trim();
 
-        const message = document.getElementById("message");
-
         if (name === "" || email === "" || comments === "") {
-
             message.style.color = "red";
             message.textContent = "Please fill out all fields.";
             return;
@@ -194,7 +207,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!emailPattern.test(email)) {
-
             message.style.color = "red";
             message.textContent = "Please enter a valid email address.";
             return;
@@ -202,11 +214,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
         message.style.color = "green";
         message.textContent = "Form submitted successfully!";
+    });
 
+    const pollForm = document.getElementById("pollForm");
+    const pollMessage = document.getElementById("pollMessage");
+
+    pollForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const selected = document.querySelector('input[name="poll"]:checked');
+
+        if (!selected) {
+            pollMessage.style.color = "red";
+            pollMessage.textContent = "Please select an option before submitting.";
+            return;
+        }
+
+        pollMessage.style.color = "green";
+        pollMessage.textContent = "Thank you for voting for: " + selected.value;
+    });
+
+    const subscribeForm = document.getElementById("subscribeForm");
+    const subscribeEmail = document.getElementById("subscribeEmail");
+    const subscribeMessage = document.getElementById("subscribeMessage");
+
+    subscribeForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const email = subscribeEmail.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (email === "") {
+            subscribeMessage.style.color = "red";
+            subscribeMessage.textContent = "Please enter an email address.";
+            return;
+        }
+
+        if (!emailPattern.test(email)) {
+            subscribeMessage.style.color = "red";
+            subscribeMessage.textContent = "Please enter a valid email address.";
+            return;
+        }
+
+        subscribeMessage.style.color = "green";
+        subscribeMessage.textContent = "Thanks for subscribing!";
+        subscribeEmail.value = "";
     });
 
 });
-
 </script>
 
 </body>
