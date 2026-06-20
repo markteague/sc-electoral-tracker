@@ -637,6 +637,7 @@ textarea {
     margin-top: 10px;
     font-weight: bold;
 }
+
 .map-card img,
 .region-card {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -658,6 +659,7 @@ textarea {
     color: inherit;
     display: block;
 }
+
 .election-card {
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
