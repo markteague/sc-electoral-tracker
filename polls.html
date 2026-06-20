@@ -231,19 +231,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelectorAll('input[name="poll"]').forEach(option => {
         option.addEventListener("change", function() {
-
             if (otherOption.checked) {
                 otherText.style.display = "block";
             } else {
                 otherText.style.display = "none";
                 otherText.value = "";
             }
-
         });
     });
 
     pollForm.addEventListener("submit", function(event) {
-
         event.preventDefault();
 
         const selected = document.querySelector('input[name="poll"]:checked');
@@ -257,7 +254,6 @@ document.addEventListener("DOMContentLoaded", function () {
         let selectedValue = selected.value;
 
         if (selectedValue === "Other") {
-
             const customAnswer = otherText.value.trim();
 
             if (customAnswer === "") {
@@ -271,7 +267,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         pollMessage.style.color = "green";
         pollMessage.textContent = "Thank you for voting for: " + selectedValue;
-
     });
 
     const subscribeForm = document.getElementById("subscribeForm");
@@ -279,7 +274,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const subscribeMessage = document.getElementById("subscribeMessage");
 
     subscribeForm.addEventListener("submit", function(event) {
-
         event.preventDefault();
 
         const email = subscribeEmail.value.trim();
@@ -300,7 +294,6 @@ document.addEventListener("DOMContentLoaded", function () {
         subscribeMessage.style.color = "green";
         subscribeMessage.textContent = "Thanks for subscribing!";
         subscribeEmail.value = "";
-
     });
 
 });
