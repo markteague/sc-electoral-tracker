@@ -634,3 +634,9 @@ textarea {
     margin-top: 10px;
     font-weight: bold;
 }
+#message,
+#pollMessage,
+#subscribeMessage {
+    margin-top: 10px;
+    font-weight: bold;
+}
